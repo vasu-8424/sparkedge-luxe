@@ -1,29 +1,54 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/sections/Nav";
+import { Hero } from "@/components/sections/Hero";
+import { About } from "@/components/sections/About";
+import { Services } from "@/components/sections/Services";
+import { WhyChoose } from "@/components/sections/WhyChoose";
+import { Industries } from "@/components/sections/Industries";
+import { BeforeAfter } from "@/components/sections/BeforeAfter";
+import { Clients } from "@/components/sections/Clients";
+import { Booking } from "@/components/sections/Booking";
+import { InstagramSection } from "@/components/sections/InstagramSection";
+import { Contact } from "@/components/sections/Contact";
+import { Footer } from "@/components/sections/Footer";
+import { CursorGlow } from "@/components/CursorGlow";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "SparkEdge — Professional Deep Cleaning & Housekeeping" },
+      {
+        name: "description",
+        content:
+          "SparkEdge delivers world-class deep cleaning, housekeeping & facility management for homes, offices and commercial spaces in Visakhapatnam.",
+      },
+      { property: "og:title", content: "SparkEdge — Professional Deep Cleaning & Housekeeping" },
+      {
+        property: "og:description",
+        content:
+          "Luxury-grade cleaning. Certified teams. Precision equipment. Book a free inspection today.",
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="relative min-h-screen bg-background text-foreground">
+      <CursorGlow />
+      <Nav />
+      <Hero />
+      <About />
+      <Services />
+      <WhyChoose />
+      <Industries />
+      <BeforeAfter />
+      <Clients />
+      <Booking />
+      <InstagramSection />
+      <Contact />
+      <Footer />
+    </main>
   );
 }
