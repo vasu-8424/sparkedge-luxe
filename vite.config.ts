@@ -12,4 +12,19 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  nitro: {
+    preset: "vercel",
+  },
+  vite: {
+    optimizeDeps: {
+      include: [
+        "framer-motion",
+        "lucide-react",
+        "clsx",
+        "tailwind-merge",
+        "@tanstack/react-router",
+        "@tanstack/react-query"
+      ]
+    }
+  }
 });

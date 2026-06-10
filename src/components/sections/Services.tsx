@@ -1,24 +1,78 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import residential from "@/assets/service-residential.jpg";
-import commercial from "@/assets/service-commercial.jpg";
 import floor from "@/assets/service-floor.jpg";
-import kitchen from "@/assets/service-kitchen.jpg";
-import sofa from "@/assets/service-sofa.jpg";
-import construction from "@/assets/service-construction.jpg";
+import housekeeping from "@/assets/about-team.jpg";
 
-const services = [
-  { title: "Residential Deep Cleaning", desc: "Top-to-bottom transformations for luxury homes.", img: residential, span: "lg:col-span-4 lg:row-span-2" },
-  { title: "Commercial Cleaning", desc: "Daily upkeep for offices that perform.", img: commercial, span: "lg:col-span-5" },
-  { title: "Floor Scrubbing", desc: "Industrial-grade machine cleaning.", img: floor, span: "lg:col-span-3" },
-  { title: "Kitchen Deep Cleaning", desc: "Restoration-level kitchen detailing.", img: kitchen, span: "lg:col-span-3" },
-  { title: "Sofa Cleaning", desc: "Upholstery care that restores texture.", img: sofa, span: "lg:col-span-3" },
-  { title: "Post Construction", desc: "From debris to ready-to-move-in.", img: construction, span: "lg:col-span-2" },
+const servicesData = [
+  {
+    title: "Residential Cleaning",
+    badgeColor: "bg-emerald text-white",
+    image: residential,
+    items: [
+      "Full Home Deep Cleaning",
+      "Kitchen Deep Cleaning",
+      "Interior Deep Cleaning",
+      "Sofa Shampooing",
+      "Pest Control",
+      "Move-In / Move-Out Cleaning",
+    ],
+  },
+  {
+    title: "Commercial Cleaning",
+    badgeColor: "bg-royal text-white",
+    image: floor,
+    items: [
+      "Office Deep Cleaning",
+      "Post-Construction Cleaning",
+      "Glass & Facade Cleaning",
+      "Tile & Floor Scrubbing",
+      "Dust & Debris Removal",
+      "Machine-Based Cleaning Solutions",
+    ],
+  },
+  {
+    title: "House keeping",
+    badgeColor: "bg-emerald text-white",
+    image: housekeeping,
+    items: [
+      "Daily Housekeeping Staff",
+      "Apartment & Community Maintenance",
+      "Office Cleaning & Maintenance",
+      "Man Power Supply",
+      "Retail & Commercial Space Maintenance",
+      "All Facility Support Services",
+    ],
+  },
 ];
 
-const more = ["Housekeeping Services", "Facility Management", "Office Maintenance"];
+const bookingServiceMap: Record<string, string> = {
+  "Full Home Deep Cleaning": "Residential Deep Cleaning",
+  "Kitchen Deep Cleaning": "Kitchen Deep Cleaning",
+  "Interior Deep Cleaning": "Residential Deep Cleaning",
+  "Sofa Shampooing": "Sofa Cleaning",
+  "Pest Control": "Residential Deep Cleaning",
+  "Move-In / Move-Out Cleaning": "Residential Deep Cleaning",
+  "Office Deep Cleaning": "Commercial Cleaning",
+  "Post-Construction Cleaning": "Post Construction",
+  "Glass & Facade Cleaning": "Commercial Cleaning",
+  "Tile & Floor Scrubbing": "Floor Scrubbing",
+  "Dust & Debris Removal": "Commercial Cleaning",
+  "Machine-Based Cleaning Solutions": "Floor Scrubbing",
+  "Daily Housekeeping Staff": "Commercial Cleaning",
+  "Man Power Supply": "Commercial Cleaning",
+  "Apartment & Community Maintenance": "Residential Deep Cleaning",
+  "Retail & Commercial Space Maintenance": "Commercial Cleaning",
+  "Office Cleaning & Maintenance": "Commercial Cleaning",
+  "All Facility Support Services": "Commercial Cleaning",
+};
 
 export function Services() {
+  const handleItemClick = (itemName: string) => {
+    const bookingVal = bookingServiceMap[itemName] || "Residential Deep Cleaning";
+    window.dispatchEvent(new CustomEvent("selectService", { detail: bookingVal }));
+  };
+
   return (
     <section id="services" className="relative py-32 lg:py-48 overflow-hidden">
       <div className="mx-auto max-w-[1500px] px-6 lg:px-12">
@@ -30,62 +84,61 @@ export function Services() {
           className="max-w-3xl mb-16 lg:mb-24"
         >
           <div className="inline-flex items-center rounded-full glass px-4 py-1.5 text-xs uppercase tracking-widest text-white/70">
-            Services
+            Our Services
           </div>
           <h2 className="mt-6 text-5xl lg:text-8xl font-bold leading-[0.95] tracking-[-0.04em] text-white">
-            Every <span className="text-gradient-brand">surface</span>.<br />
-            Every space.
+            Professional <span className="text-gradient-brand">cleaning</span>.<br />
+            Exceptional results.
           </h2>
-          <p className="mt-6 text-lg text-white/70 max-w-xl">
-            A complete suite of professional cleaning services, engineered for any environment
-            and delivered with consistency.
-          </p>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-9 auto-rows-[280px] gap-4 lg:gap-5">
-          {services.map((s, i) => (
-            <motion.a
+        {/* 3 Columns Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {servicesData.map((s, index) => (
+            <motion.div
               key={s.title}
-              href="#"
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 35 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: i * 0.06, duration: 0.7 }}
-              whileHover="hover"
-              className={`group relative overflow-hidden rounded-3xl ${s.span}`}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              className="glass rounded-3xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-500 group flex flex-col h-full"
             >
-              <motion.img
-                src={s.img}
-                alt={s.title}
-                loading="lazy"
-                variants={{ hover: { scale: 1.1 } }}
-                transition={{ duration: 1.2, ease: [0.2, 0.8, 0.2, 1] }}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[linear-gradient(135deg,oklch(0.58_0.24_258/0.3),oklch(0.72_0.19_152/0.3))]" />
-
-              <div className="relative z-10 h-full flex flex-col justify-end p-6 lg:p-8">
-                <div className="absolute top-5 right-5 h-10 w-10 rounded-full glass-strong flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
-                  <ArrowUpRight className="h-4 w-4 text-white" />
+              {/* Image Container with Absolute Capsule Header */}
+              <div className="h-56 relative overflow-hidden shrink-0">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  loading="lazy"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+                
+                {/* Visual Label Capsule */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[85%]">
+                  <div className={`text-center text-base font-black tracking-wide py-2.5 rounded-2xl shadow-glow ${s.badgeColor}`}>
+                    {s.title}
+                  </div>
                 </div>
-                <h3 className="text-xl lg:text-2xl font-semibold text-white tracking-tight">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-sm text-white/70 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-20 transition-all duration-500">
-                  {s.desc}
-                </p>
               </div>
-            </motion.a>
-          ))}
-        </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          {more.map((m) => (
-            <span key={m} className="glass rounded-full px-5 py-2.5 text-sm text-white/80">
-              {m}
-            </span>
+              {/* Bullet list */}
+              <div className="p-8 flex-1 flex flex-col justify-between">
+                <ul className="space-y-4">
+                  {s.items.map((item) => (
+                    <li key={item}>
+                      <button
+                        onClick={() => handleItemClick(item)}
+                        className="flex items-center gap-3.5 w-full text-left text-white/80 hover:text-emerald transition-colors group/item cursor-pointer"
+                      >
+                        <CheckCircle2 className="h-4.5 w-4.5 text-emerald shrink-0" strokeWidth={2.5} />
+                        <span className="text-sm font-semibold tracking-wide">{item}</span>
+                        <ArrowRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all ml-auto" />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

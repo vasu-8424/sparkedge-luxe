@@ -129,11 +129,19 @@ export function Hero() {
             transition={{ delay: 1.4, duration: 0.8 }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <Button variant="hero" size="xl">
+            <Button
+              variant="hero"
+              size="xl"
+              onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
+            >
               Book Free Inspection
               <ArrowRight />
             </Button>
-            <Button variant="glass" size="xl">
+            <Button
+              variant="glass"
+              size="xl"
+              onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+            >
               Explore Services
             </Button>
           </motion.div>

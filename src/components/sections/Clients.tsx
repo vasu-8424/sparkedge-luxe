@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
-const logos = [
-  "VEGA REALTY", "AURORA OFFICES", "MERIDIAN HOSPITALS", "NORTHSTAR MALLS",
-  "HARBOUR HEIGHTS", "CRESCENT TOWERS", "PRISMA EDU", "ATLAS COMMERCIAL",
-];
-
 const testimonials = [
   {
     quote: "SparkEdge transformed our 40-floor tower's daily upkeep. The consistency is unreal.",
@@ -37,30 +32,14 @@ export function Clients() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="text-xs uppercase tracking-[0.3em] text-white/50">Trusted by</div>
+          <div className="text-xs uppercase tracking-[0.3em] text-white/50">Testimonials</div>
           <h2 className="mt-4 text-3xl lg:text-5xl font-bold text-white tracking-tight">
-            Brands that demand <span className="text-gradient-brand">precision</span>
+            What our clients <span className="text-gradient-brand">say</span>
           </h2>
         </motion.div>
 
-        {/* Marquee */}
-        <div className="relative overflow-hidden mask-marquee" style={{ maskImage: "linear-gradient(90deg,transparent,black 10%,black 90%,transparent)" }}>
-          <div className="flex gap-4 animate-marquee w-max">
-            {[...logos, ...logos].map((logo, i) => (
-              <div
-                key={i}
-                className="glass-strong rounded-full px-8 py-5 shrink-0 hover:shadow-glow transition-all duration-500"
-              >
-                <span className="text-white/70 font-semibold tracking-[0.15em] text-sm">
-                  {logo}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Testimonials */}
-        <div className="mt-24 grid md:grid-cols-3 gap-5">
+        <div className="mt-16 grid md:grid-cols-3 gap-5">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}

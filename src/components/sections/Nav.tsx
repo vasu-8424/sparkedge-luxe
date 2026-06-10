@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { SparkEdgeLogo } from "@/components/SparkEdgeLogo";
 
 const links = [
   { label: "Services", href: "#services" },
@@ -31,16 +32,8 @@ export function Nav() {
       }`}
     >
       <nav className="flex items-center justify-between px-5 py-3 lg:px-7">
-        <a href="#" className="flex items-center gap-2.5">
-          <div className="relative h-8 w-8">
-            <div className="absolute inset-0 rounded-lg bg-[linear-gradient(135deg,oklch(0.58_0.24_258),oklch(0.72_0.19_152))]" />
-            <div className="absolute inset-0 rounded-lg bg-[linear-gradient(135deg,oklch(0.58_0.24_258),oklch(0.72_0.19_152))] blur-md opacity-70 animate-pulse-glow" />
-            <div className="absolute inset-[6px] rounded-[5px] bg-background" />
-            <div className="absolute inset-[8px] rounded-[3px] bg-[linear-gradient(135deg,oklch(0.58_0.24_258),oklch(0.72_0.19_152))]" />
-          </div>
-          <span className="font-bold tracking-tight text-lg text-white">
-            Spark<span className="text-gradient-brand">Edge</span>
-          </span>
+        <a href="#" className="flex items-center">
+          <SparkEdgeLogo showSubtitle={false} className="h-12 md:h-14 w-auto" lightText={true} />
         </a>
 
         <ul className="hidden items-center gap-1 lg:flex">
@@ -57,7 +50,12 @@ export function Nav() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Button variant="hero" size="default" className="hidden sm:inline-flex rounded-full h-10 px-5 text-sm">
+          <Button
+            variant="hero"
+            size="default"
+            className="hidden sm:inline-flex rounded-full h-10 px-5 text-sm"
+            onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
+          >
             Book Now
           </Button>
           <button

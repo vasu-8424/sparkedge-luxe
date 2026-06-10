@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { SparkEdgeLogo } from "@/components/SparkEdgeLogo";
 
 export function Footer() {
   return (
@@ -32,7 +33,12 @@ export function Footer() {
             <span className="text-gradient-brand">cleaner</span> space?
           </h2>
           <div className="mt-12 flex justify-center">
-            <Button variant="hero" size="xl" className="text-lg h-16 px-10">
+            <Button
+              variant="hero"
+              size="xl"
+              className="text-lg h-16 px-10"
+              onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
+            >
               Book Free Inspection
               <ArrowUpRight />
             </Button>
@@ -43,15 +49,8 @@ export function Footer() {
         <div className="mt-32 pt-12 border-t border-white/10">
           <div className="grid md:grid-cols-3 gap-10 items-start">
             <div>
-              <div className="flex items-center gap-2.5">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="h-9 w-9 rounded-lg bg-[linear-gradient(135deg,oklch(0.58_0.24_258),oklch(0.72_0.19_152))] shadow-glow"
-                />
-                <span className="font-bold text-xl text-white">
-                  Spark<span className="text-gradient-brand">Edge</span>
-                </span>
+              <div className="flex items-center">
+                <SparkEdgeLogo showSubtitle={true} className="h-16 w-auto" lightText={true} />
               </div>
               <p className="mt-4 text-sm text-white/60 max-w-xs">
                 Professional deep cleaning & housekeeping services for homes, offices, and facilities.
