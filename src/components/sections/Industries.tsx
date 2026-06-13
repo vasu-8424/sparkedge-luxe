@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { clientLogosList } from "@/components/ClientLogos";
+import scannerImg from "@/assets/scanner.png";
 
 const industryBullets = [
   "Apartments, Villas & Gated Communities",
@@ -71,43 +72,9 @@ export function Industries() {
               <div className="flex-1 flex flex-col items-center justify-center">
                 <div className="text-[10px] uppercase tracking-[0.25em] text-emerald font-black mb-5">// Scan to explore</div>
                 
-                {/* SVG QR Code */}
+                {/* QR Code Image */}
                 <div className="bg-white p-4.5 rounded-[2rem] shadow-glow mb-6 group-hover:scale-105 transition-transform duration-500 shrink-0">
-                  <svg className="h-32 w-32 text-black" viewBox="0 0 100 100" fill="currentColor">
-                    <rect x="0" y="0" width="25" height="25" />
-                    <rect x="3" y="3" width="19" height="19" fill="white" />
-                    <rect x="6" y="6" width="13" height="13" />
-
-                    <rect x="75" y="0" width="25" height="25" />
-                    <rect x="78" y="3" width="19" height="19" fill="white" />
-                    <rect x="81" y="6" width="13" height="13" />
-
-                    <rect x="0" y="75" width="25" height="25" />
-                    <rect x="3" y="78" width="19" height="19" fill="white" />
-                    <rect x="6" y="81" width="13" height="13" />
-
-                    <rect x="35" y="5" width="5" height="15" />
-                    <rect x="45" y="0" width="10" height="5" />
-                    <rect x="40" y="20" width="15" height="5" />
-                    <rect x="60" y="10" width="5" height="10" />
-                    <rect x="5" y="35" width="15" height="5" />
-                    <rect x="25" y="30" width="5" height="15" />
-                    <rect x="15" y="50" width="20" height="5" />
-                    <rect x="0" y="60" width="5" height="10" />
-                    <rect x="30" y="45" width="5" height="5" />
-                    <rect x="45" y="30" width="10" height="10" />
-                    <rect x="60" y="35" width="5" height="15" />
-                    <rect x="35" y="60" width="10" height="5" />
-                    <rect x="50" y="55" width="5" height="20" />
-                    <rect x="60" y="65" width="15" height="5" />
-                    <rect x="40" y="80" width="15" height="5" />
-                    <rect x="30" y="90" width="20" height="5" />
-                    <rect x="65" y="80" width="5" height="15" />
-                    <rect x="80" y="35" width="15" height="5" />
-                    <rect x="90" y="45" width="10" height="10" />
-                    <rect x="80" y="60" width="5" height="10" />
-                    <rect x="90" y="80" width="10" height="5" />
-                  </svg>
+                  <img src={scannerImg} alt="Scan to Book" className="h-32 w-32 object-contain" />
                 </div>
 
                 <h4 className="text-3xl font-black text-white leading-tight tracking-tight mb-2">

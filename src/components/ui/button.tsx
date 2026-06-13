@@ -19,6 +19,7 @@ const buttonVariants = cva(
         hero: "btn-magnetic text-white font-semibold tracking-tight rounded-full bg-[linear-gradient(135deg,oklch(0.58_0.24_258),oklch(0.72_0.19_152))] shadow-elegant hover:shadow-glow",
         glass: "btn-magnetic glass text-white font-medium rounded-full hover:bg-white/10",
         ghostLine: "btn-magnetic border border-white/20 text-white rounded-full hover:bg-white/5",
+        whatsapp: "btn-magnetic text-white font-semibold tracking-tight rounded-full bg-[linear-gradient(135deg,oklch(0.72_0.19_152),oklch(0.74_0.19_138))] shadow-[0_0_30px_oklch(0.72_0.19_152_/_0.3)] hover:shadow-[0_0_40px_oklch(0.72_0.19_152_/_0.5)] transition-all",
       },
       size: {
         default: "h-9 px-4 py-2",
